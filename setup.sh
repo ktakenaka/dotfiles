@@ -1,6 +1,6 @@
 #!/usr/local/bin/zsh
 
-DOT_FILES=(.zshrc .zprofile .zshenv .inputrc .vimrc .gvimrc)
+DOT_FILES=(.zshrc .zprofile .zshenv .inputrc .vimrc .gvimrc .gitignore_global)
 
 for file in ${DOT_FILES[@]}
 do
