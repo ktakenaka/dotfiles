@@ -2,3 +2,4 @@
 .zcompdump
 .gitignore
 .DS_Store
+.env
