@@ -1,30 +1,41 @@
-eval "$(rbenv init - zsh)" # user rbenv ruby
-eval "$(direnv hook zsh)"  # set environment variables in each directory
+eval "$(rbenv init - zsh)"
+eval "$(nodenv init - zsh)"
+eval "$(direnv hook zsh)"
 
-# colors
+# ------ #
+# colors #
+# ------ #
 autoload -Uz colors && colors
 export LSCOLORS=gxfxxxxxcxxxxxxxxxgxgx
 export LS_COLORS='di=01;36:ln=01;35:ex=01;32'
 
-# 2-line display
+# ----- #
+# alias #
+# ----- #
+alias ls='ls -G -F'
+alias la='ls -a'
+alias ll='ls -l'
+alias rm='rm -i'
+alias cp='cp -i'
+alias mv='mv -i'
+alias mkdir='mkdir -p'
+alias reload='exec zsh -l'
+alias gi='git'
+alias gis='git status'
+alias gib='git branch'
+alias gia='git add'
+alias gic='git checkout'
+alias chrome="open /Applications/Google\ Chrome.app"
+
+# -------------- #
+# 2-line display #
+# -------------- #
 PROMPT="%{${fg[green]}%}%n %{${fg[blue]}%}@ %~  %{$fg[magenta]%}%D/%T
 %{${reset_color}%}:) %{${fg[cyan]}%}$%{${reset_color}%} "
 
-########################################
-# vcs_info
-autoload -Uz vcs_info
-zstyle ':vcs_info:*' formats '%F{cyan}(%b)%f'
-zstyle ':vcs_info:*' actionformats '%F{red}(%s)-[%b|%a]%f'
-
-autoload -Uz add-zsh-hook
-function _update_vcs_info_msg() {
-    LANG=en_US.UTF-8 vcs_info
-    RPROMPT="${vcs_info_msg_0_}"
-}
-add-zsh-hook precmd _update_vcs_info_msg
-
-########################################
-# completion
+# ---------- #
+# completion #
+# ---------- #
 autoload -Uz compinit && compinit
 zstyle ':completion:*:default' menu select interactive # 補完候補を矢印で選択できる
 zstyle ':completion:*' matcher-list 'm:{a-z}={A-Z}'    # 補完で小文字でも大文字にマッチさせる
@@ -36,7 +47,9 @@ setopt auto_param_slash      # ディレクトリ名の補完で末尾の / を�
 setopt mark_dirs             # ファイル名の展開でディレクトリにマッチした場合 末尾に / を付加
 setopt auto_menu             # 補完キー連打で順に補完候補を自動で補完
 
-########################################
+# ------- #
+# setting #
+# ------- #
 setopt always_last_prompt    # カーソル位置は保持したままファイル名一覧を順次その場で表示
 setopt print_eight_bit       # 日本語ファイル名を表示可能にする
 setopt no_beep               # beep を無効にする
@@ -50,5 +63,28 @@ setopt hist_ignore_all_dups  # 同じコマンドをヒストリに残さない
 setopt hist_reduce_blanks    # ヒストリに保存するときに余分なスペースを削除する
 setopt correct               # コマンドの打ち間違いを指摘してくれる
 SPROMPT="correct: $RED%R$DEFAULT -> $GREEN%r$DEFAULT ? [Yes/No/Abort/Edit] => "
+
+# --------------------- #
+# environment variables #
+# --------------------- #
+export CLICOLOR=1
+export DYLD_LIBRARY_PATH=/usr/local/opt/mysql@5.5/:${DYLD_LIBRARY_PATH}
+export JAVA_HOME=`/usr/libexec/java_home -v 1.8`
+export LANG=ja_JP.UTF-8
+export LC_ALL=en_US.UTF-8
+export LDFLAGS="-L/usr/local/opt/mysql@5.7/lib"
+export CPPFLAGS="-I/usr/local/opt/mysql@5.7/include"
+
+# ---- #
+# path #
+# ---- #
+export PATH=/usr/sbin:/usr/bin:/usr/local/bin:/sbin:/bin:$PATH
+export PATH=$HOME/.nodenv/shims:$PATH # nodejs
+export PATH=$HOME/.yarn/bin:$HOME/.config/yarn/global/node_modules/.bin:$PATH # yarn
+export PATH=$HOME/.rbenv/shim:$HOME/.rbenv/bin:$PATH # rbenv
+export PATH=$HOME/miniconda3/bin:$PATH # miniconda
+export PATH=/usr/local/opt/mysql@5.7/bin:$PATH # mysql
+export PATH=/usr/local/opt/rabbitmq/sbin:$PATH # rabbitmq
+export PATH=/usr/local/opt/openssl/bin:$PATH # openssl
 
 echo 'i am zshrc'
