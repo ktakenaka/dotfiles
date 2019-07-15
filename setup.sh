@@ -8,8 +8,8 @@ do
 done
 
 rm -f $HOME/.atom/keymap.cson
-cp keymap.cson $HOME/.atom/keymap.cson
+ln keymap.cson $HOME/.atom/keymap.cson
 
-# ipython setting
+rm -f $HOME/.ipython/profile_default/startup/default.py
 ln -s $HOME/dotfiles/default.py $HOME/.ipython/profile_default/startup/default.py
 jt -r
