@@ -78,7 +78,7 @@ export CPPFLAGS="-I/usr/local/opt/mysql@5.7/include"
 # ---- #
 # path #
 # ---- #
-export PATH=/usr/sbin:/usr/bin:/usr/local/bin:/sbin:/bin:$PATH
+export PATH=$PATH:/usr/sbin:/usr/bin:/usr/local/bin:/sbin:/bin
 export PATH=$HOME/.nodenv/shims:$PATH # nodejs
 export PATH=$HOME/.yarn/bin:$HOME/.config/yarn/global/node_modules/.bin:$PATH # yarn
 export PATH=$HOME/.rbenv/shim:$HOME/.rbenv/bin:$PATH # rbenv
