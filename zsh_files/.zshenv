@@ -55,4 +55,19 @@ function _update_vcs_info_msg() {
 }
 add-zsh-hook precmd _update_vcs_info_msg
 
+# --------- #
+# conda env #
+# --------- #
+function enable-conda-env() {
+  # >>> conda initialize >>>
+  # !! Contents within this block are managed by 'conda init' !!
+  __conda_setup="$("$HOME/miniconda3/bin/conda" 'shell.zsh' 'hook' 2> /dev/null)"
+  if [ $? -eq 0 ]; then
+      eval "$__conda_setup"
+  else
+      . "$HOME/miniconda3/etc/profile.d/conda.sh"
+  fi
+  unset __conda_setup
+}
+
 echo 'i am zshenv'
