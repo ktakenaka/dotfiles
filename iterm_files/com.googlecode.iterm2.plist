@@ -1640,7 +1640,7 @@
 		</dict>
 	</dict>
 	<key>PrefsCustomFolder</key>
-	<string>/Users/takenaka.kazumasa/dotfiles/iterm_files</string>
+	<string>~/dotfiles/iterm_files</string>
 	<key>Print In Black And White</key>
 	<true/>
 	<key>SUEnableAutomaticChecks</key>
