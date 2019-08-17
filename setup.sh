@@ -1,7 +1,7 @@
 #!/usr/local/bin/zsh
 
 echo 'Create symlinks'
-DIRS=(iterm_files terminal_files vim_files zsh_files)
+DIRS=(iterm terminal vim zsh)
 DOT_HOME=$HOME/dotfiles
 for dir in ${DIRS[@]}
 do
