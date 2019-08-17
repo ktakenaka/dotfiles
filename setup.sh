@@ -13,7 +13,7 @@ done
 
 echo 'Setting for atom'
 rm -f $HOME/.atom/keymap.cson
-ln keymap.cson $HOME/.atom/keymap.cson
+ln $DOT_HOME/atom/keymap.cson $HOME/.atom/keymap.cson
 
 echo 'Setting for python'
 rm -f $HOME/.ipython/profile_default/startup/default.py
