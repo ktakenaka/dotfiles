@@ -15,4 +15,4 @@ echo 'Setting for atom'
 ln -f $DOT_HOME/atom/keymap.cson $HOME/.atom/keymap.cson
 
 echo 'Setting for python'
-ln -sf $HOME/dotfiles/default.py $HOME/.ipython/profile_default/startup/default.py
+ln -sf $HOME/dotfiles/python/default.py $HOME/.ipython/profile_default/startup/default.py
