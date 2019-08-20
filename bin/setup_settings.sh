@@ -1,5 +1,3 @@
-#!/usr/local/bin/zsh
-
 echo 'Create symlinks'
 DIRS=(iterm terminal vim zsh)
 DOT_HOME=$HOME/dotfiles
