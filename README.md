@@ -13,7 +13,7 @@ xcode-select --install
 
 then
 ```
-chmod +x bin/add_permissions.sh
+chsh -s $(which zsh)
 bin/add_permissions.sh
 bin/setup_settings.sh
 bin/install_dependencies.sh
