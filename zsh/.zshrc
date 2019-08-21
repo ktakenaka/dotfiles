@@ -26,6 +26,7 @@ alias gib='git branch'
 alias gia='git add'
 alias gic='git checkout'
 alias chrome="open /Applications/Google\ Chrome.app"
+alias python=python3
 
 # -------------- #
 # 2-line display #
@@ -83,7 +84,6 @@ export PATH=$HOME/.nodenv/shims:$PATH # nodejs
 export PATH=$HOME/.yarn/bin:$HOME/.config/yarn/global/node_modules/.bin:$PATH # yarn
 export PATH=$HOME/.rbenv/shim:$HOME/.rbenv/bin:$PATH # rbenv
 export PATH=$HOME/miniconda3/bin:$PATH # miniconda
-export PATH=/usr/local/miniconda3/bin:$PATH # miniconda
 export PATH=/usr/local/opt/mysql@5.7/bin:$PATH # mysql
 export PATH=/usr/local/opt/rabbitmq/sbin:$PATH # rabbitmq
 export PATH=/usr/local/opt/openssl/bin:$PATH # openssl
