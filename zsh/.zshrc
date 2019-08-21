@@ -69,7 +69,6 @@ SPROMPT="correct: $RED%R$DEFAULT -> $GREEN%r$DEFAULT ? [Yes/No/Abort/Edit] => "
 # environment variables #
 # --------------------- #
 export CLICOLOR=1
-export DYLD_LIBRARY_PATH=/usr/local/opt/mysql@5.5/:${DYLD_LIBRARY_PATH}
 export JAVA_HOME=`/usr/libexec/java_home -v 1.8`
 export LANG=ja_JP.UTF-8
 export LC_ALL=en_US.UTF-8
