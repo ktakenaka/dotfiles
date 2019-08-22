@@ -1,0 +1,33 @@
+{
+  "title": "US keyboard settings",
+  "rules": [
+    {
+      "description": "option + caps_lock => caps_lock",
+      "manipulators": [
+        {
+          "type": "basic",
+          "from": {
+            "simultaneous": [
+              {
+                "key_code": "right_option"
+              },
+              {
+                "key_code": "left_control"
+              }
+            ],
+            "modifiers": {
+              "optional": [
+                "any"
+              ]
+            }
+          },
+          "to": [
+            {
+              "key_code": "caps_lock"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}
