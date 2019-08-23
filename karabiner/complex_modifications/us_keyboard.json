@@ -15,6 +15,9 @@
                 "key_code": "left_control"
               }
             ],
+            "simultaneous_options": {
+              "key_down_order": "strict"
+            },
             "modifiers": {
               "optional": [
                 "any"
