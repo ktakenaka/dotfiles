@@ -12,7 +12,11 @@ do
 done
 
 echo 'Setting for atom'
-ln -f $DOT_HOME/atom/keymap.cson $HOME/.atom/keymap.cson
+for f in $(ls -A $DOT_HOME/atom)
+do
+  echo $f
+  ln -f $DOT_HOME/atom/$f $HOME/.atom/$f
+done
 
 echo 'Setting for python'
 ln -sf $HOME/dotfiles/python/default.py $HOME/.ipython/profile_default/startup/default.py

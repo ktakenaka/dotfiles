@@ -1,0 +1,33 @@
+"*":
+  "autocomplete-python":
+    useKite: false
+  autosave:
+    enabled: true
+  core:
+    disabledPackages: [
+      "spell-check"
+      "busy-signal"
+      "haskell-ghc-mod"
+      "ide-haskell"
+    ]
+    telemetryConsent: "limited"
+  editor:
+    fontSize: 10
+    showIndentGuide: true
+    showInvisibles: true
+    softWrap: true
+    tabLength: 2
+    tabType: "soft"
+  "exception-reporting":
+    userId: "6e9cf887-ffa2-4027-8ed3-bf460893d4df"
+  "linter-ui-default":
+    showPanel: true
+  welcome:
+    showOnStartup: false
+".python.regexp.source":
+  editor:
+    tabLength: 4
+".python.source":
+  editor:
+    autoIndent: true
+    tabLength: 2
