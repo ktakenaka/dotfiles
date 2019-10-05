@@ -75,7 +75,7 @@ export LC_ALL=en_US.UTF-8
 # ---- #
 # path #
 # ---- #
-export PATH=$PATH:/usr/sbin:/usr/bin:/usr/local/bin:/sbin:/bin
+export PATH=$PATH:/usr/sbin:/usr/bin:/usr/local/sbin:/usr/local/bin:/sbin:/bin
 export PATH=$HOME/.nodenv/shims:$PATH # nodejs
 export PATH=$HOME/.yarn/bin:$HOME/.config/yarn/global/node_modules/.bin:$PATH # yarn
 export PATH=$HOME/.rbenv/shim:$HOME/.rbenv/bin:$PATH # rbenv
