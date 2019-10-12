@@ -1,6 +1,7 @@
 eval "$(rbenv init - zsh)"
 eval "$(nodenv init - zsh)"
 eval "$(direnv hook zsh)"
+eval "$(goenv init - zsh)"
 
 # ------ #
 # colors #
@@ -79,6 +80,7 @@ export PATH=$PATH:/usr/sbin:/usr/bin:/usr/local/sbin:/usr/local/bin:/sbin:/bin
 export PATH=$HOME/.nodenv/shims:$PATH # nodejs
 export PATH=$HOME/.yarn/bin:$HOME/.config/yarn/global/node_modules/.bin:$PATH # yarn
 export PATH=$HOME/.rbenv/shim:$HOME/.rbenv/bin:$PATH # rbenv
+export PATH=$HOME/.goenv/bin:$PATH # goenv
 export PATH=$HOME/miniconda3/bin:$PATH # miniconda
 export PATH=/usr/local/opt/mysql@5.7/bin:$PATH # mysql
 export PATH=/usr/local/opt/rabbitmq/sbin:$PATH # rabbitmq
