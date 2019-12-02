@@ -1,5 +1,5 @@
 echo 'Create symlinks'
-DIRS=(iterm terminal vim zsh)
+DIRS=(iterm terminal vim zsh ruby)
 DOT_HOME=$HOME/dotfiles
 for dir in ${DIRS[@]}
 do
