@@ -15,7 +15,7 @@ export LS_COLORS='di=01;36:ln=01;35:ex=01;32'
 # ----- #
 alias ls='ls -G -F'
 alias la='ls -A'
-alias ll='ls -l'
+alias ll='ls -lh'
 alias rm='rm -i'
 alias cp='cp -i'
 alias mv='mv -i'
