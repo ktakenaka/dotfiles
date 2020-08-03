@@ -1,7 +1,6 @@
 eval "$(rbenv init - zsh)"
 eval "$(nodenv init - zsh)"
 eval "$(direnv hook zsh)"
-eval "$(goenv init - zsh)"
 
 # ------ #
 # colors #
