@@ -27,6 +27,7 @@ alias gia='git add'
 alias gic='git checkout'
 alias gim='git commit --amend -C HEAD --date=now'
 alias gif='git fetch -p'
+alias gip='git pull'
 alias chrome="open /Applications/Google\ Chrome.app"
 alias dpslp="pmset displaysleepnow"
 
