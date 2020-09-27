@@ -55,6 +55,14 @@ function _update_vcs_info_msg() {
 }
 add-zsh-hook precmd _update_vcs_info_msg
 
+# ------- #
+# gre-sed #
+# ------- #
+function grep-sed() {
+    git grep -l "$1" | xargs sed -i '' -e "s/$1/$2/g"
+}
+alias gsed=grep-sed
+
 # ---- #
 # path #
 # ---- #
