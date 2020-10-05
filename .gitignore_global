@@ -1,7 +1,0 @@
-.idea
-.zcompdump
-.gitignore
-.DS_Store
-.env
-vendor/bundle
-.envrc
