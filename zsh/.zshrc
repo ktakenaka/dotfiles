@@ -77,3 +77,20 @@ export LC_ALL=en_US.UTF-8
 export HISTFILE=${HOME}/.zsh_history # 履歴ファイルの保存先
 export HISTSIZE=1000                 # メモリに保存される履歴の件数
 export SAVEHIST=10000                # 履歴ファイルに保存される履歴の件数
+
+
+# ----------------------- #
+# configuration for Linux #
+# ----------------------- #
+if [ "$(uname 2> /dev/null)" == "Linux" ]; then
+  # this command is needed to enable /etc/init.d/ktake_xkeysnail.
+  # It will raise `Can't connect to display ":0"` error without this command.
+  xhost + > /dev/null
+
+  alias kymap="sudo /etc/init.d/ktake_xkeysnail start"
+  alias sync-dotfile="rsync $HOME/.tmux.conf $HOME/dotfiles/tmux/"
+
+  if [ -z "$TMUX" ]; then
+    tmux attach -t default || tmux new -s default
+  fi
+fi

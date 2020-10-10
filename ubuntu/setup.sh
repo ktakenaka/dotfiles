@@ -2,8 +2,10 @@ DOT_HOME=$HOME/dotfiles
 UBUNTU_HOME=$HOME/dotfiles/ubuntu
 
 # --- zsh ---
-rsync $UBUNTU_HOME/.zprofile $HOME/
-rsync $DOT_HOME/zsh/ $HOME/
+rsync -av $DOT_HOME/zsh/ $HOME/
+
+# --- tmux ---
+rsync -av $DOT_HOME/tmux/ $HOME/
 
 # --- vim ---
 rsync -av $DOT_HOME/vim/ $HOME/
