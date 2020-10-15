@@ -78,6 +78,9 @@ export HISTFILE=${HOME}/.zsh_history # 履歴ファイルの保存先
 export HISTSIZE=1000                 # メモリに保存される履歴の件数
 export SAVEHIST=10000                # 履歴ファイルに保存される履歴の件数
 
+if [ -z "$TMUX" ]; then
+  tmux attach -t default || tmux new -s default
+fi
 
 # ----------------------- #
 # configuration for Linux #
