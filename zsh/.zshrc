@@ -93,7 +93,7 @@ if [ "$(uname 2> /dev/null)" == "Linux" ]; then
   alias kymap="sudo /etc/init.d/ktake_xkeysnail start"
   alias sync-dotfile="rsync $HOME/.tmux.conf $HOME/dotfiles/tmux/"
 
-  # if [ -z "$TMUX" ]; then
-  #   tmux attach -t default || tmux new -s default
-  # fi
+  if [ -z "$TMUX" ]; then
+    tmux attach -t default || tmux new -s default
+  fi
 fi
