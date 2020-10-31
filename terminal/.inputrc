@@ -1,0 +1,9 @@
+set completion-ignore-case on
+set completion-query-items on
+set show-all-if-ambiguous on
+set input-meta on
+set output-meta on
+set convert-meta off
+set meta-flag on
+set colored-stats on
+set visible-stats on
