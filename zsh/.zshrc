@@ -14,9 +14,6 @@ if [ -x ${HOME}/.anyenv/bin/anyenv ]; then
     zcompile /tmp/anyenv.cache
   fi
   source /tmp/anyenv.cache
-else
-  eval "$(rbenv init - zsh)"
-  eval "$(nodenv init - zsh)"
 fi
 
 # ------ #

@@ -68,9 +68,7 @@ alias gsed=grep-sed
 # ---- #
 export PATH=$PATH:/usr/sbin:/usr/bin:/usr/local/sbin:/usr/local/bin:/sbin:/bin
 export PATH=$HOME/.anyenv/bin:$PATH
-export PATH=$HOME/.nodenv/shims:$HOME/.nodenv/bin:$PATH # nodejs
 export PATH=$HOME/.yarn/bin:$HOME/.config/yarn/global/node_modules/.bin:$PATH # yarn
-export PATH=$HOME/.rbenv/shim:$HOME/.rbenv/bin:$PATH # rbenv
 export PATH=$HOME/go/bin:/usr/local/go/bin:$PATH # go
 export PATH=$HOME/miniconda3/bin:/usr/local/Caskroom/miniconda/base/bin:$PATH # miniconda
 export PATH=/usr/local/opt/rabbitmq/sbin:$PATH # rabbitmq
