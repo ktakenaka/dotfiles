@@ -1,4 +1,4 @@
-# eval "$(direnv hook zsh)"
+eval "$(direnv hook zsh)"
 
 if [ -x /usr/bin/direnv ]; then
   if ! [ -f /tmp/direnv.cache ]; then
