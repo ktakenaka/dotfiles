@@ -1,5 +1,5 @@
 echo 'Create symlinks'
-DIRS=(iterm terminal vim zsh ruby tmux)
+DIRS=(terminal vim zsh ruby tmux)
 DOT_HOME=$HOME/dotfiles
 for dir in ${DIRS[@]}
 do
