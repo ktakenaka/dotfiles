@@ -1,3 +1,4 @@
+#!/bin/sh
 echo 'Create symlinks'
 DIRS=(terminal vim zsh ruby tmux)
 DOT_HOME=$HOME/dotfiles

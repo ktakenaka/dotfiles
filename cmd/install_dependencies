@@ -1,0 +1,6 @@
+#!/bin/sh
+brew bundle
+anyenv install goenv
+anyenv install nodenv
+anyenv install rbenv
+anyenv install tfenv

@@ -1,3 +1,4 @@
+#!/bin/sh
 mas upgrade
 brew update && brew upgrade `brew outdated`
 brew upgrade --cask
