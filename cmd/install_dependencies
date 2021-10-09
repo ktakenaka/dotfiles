@@ -1,2 +1,5 @@
 #!/bin/sh
 brew bundle
+
+# anyenv-update https://github.com/znz/anyenv-update
+# nodenv-yarn-install https://github.com/pine/nodenv-yarn-install
