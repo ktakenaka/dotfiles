@@ -1,0 +1,2 @@
+0 0 * * * $HOME/dotfiles/cron/rm_dwl
+0 15 * * * $HOME/dotfiles/cmd/maintenance
