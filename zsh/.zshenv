@@ -4,31 +4,6 @@
 cdls () { \cd "$@" && ls }
 alias cd="cdls"
 
-# --- #
-# fzf #
-# --- #
-function single-fzf-choice() {
-  fzf --height=20 --no-sort +m --query "$1" --prompt="$2 > "
-}
-function ghq-interactive-directory-select-and-cd() {
-  target=$(ghq list | single-fzf-choice "$1" "Repository")
-  if [ -z $target ]; then
-    return 0
-  fi
-  cd $(ghq root)/$target
-}
-alias gcd=ghq-interactive-directory-select-and-cd # Git Change Directory
-
-# ----------------------------- #
-# fd - cd to selected directory #
-# ----------------------------- #
-fd() {
-  local dir
-  dir=$(find ${1:-.} -path '*/\.*' -prune \
-                  -o -type d -print 2> /dev/null | fzf +m) &&
-  cd "$dir"
-}
-
 # ---- #
 # peco #
 # ---- #
