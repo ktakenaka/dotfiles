@@ -1,0 +1,11 @@
+#!/bin/bash
+
+DOT_HOME=$HOME/dotfiles
+
+echo 'Create ~/bin'
+mkdir ${HOME}/bin
+for f in $(ls ${DOT_HOME}/bin)
+do
+  echo $f
+  ln -fs "${DOT_HOME}/bin/${f}" ${HOME}/bin/${f}
+done

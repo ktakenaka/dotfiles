@@ -4,31 +4,6 @@
 cdls () { \cd "$@" && ls }
 alias cd="cdls"
 
-# --- #
-# fzf #
-# --- #
-function single-fzf-choice() {
-  fzf --height=20 --no-sort +m --query "$1" --prompt="$2 > "
-}
-function ghq-interactive-directory-select-and-cd() {
-  target=$(ghq list | single-fzf-choice "$1" "Repository")
-  if [ -z $target ]; then
-    return 0
-  fi
-  cd $(ghq root)/$target
-}
-alias gcd=ghq-interactive-directory-select-and-cd # Git Change Directory
-
-# ----------------------------- #
-# fd - cd to selected directory #
-# ----------------------------- #
-fd() {
-  local dir
-  dir=$(find ${1:-.} -path '*/\.*' -prune \
-                  -o -type d -print 2> /dev/null | fzf +m) &&
-  cd "$dir"
-}
-
 # ---- #
 # peco #
 # ---- #
@@ -55,19 +30,12 @@ function _update_vcs_info_msg() {
 }
 add-zsh-hook precmd _update_vcs_info_msg
 
-# ------- #
-# gre-sed #
-# ------- #
-function grep-sed() {
-    git grep -l "$1" | xargs sed -i '' -e "s/$1/$2/g"
-}
-alias gsed=grep-sed
-
 # ---- #
 # path #
 # ---- #
 export PATH=$PATH:/usr/sbin:/usr/bin:/usr/local/sbin:/usr/local/bin:/sbin:/bin
 export PATH=/opt/homebrew/sbin:/opt/homebrew/bin:$PATH # M1 Mac
+export PATH=$HOME/bin:$PATH
 export PATH=$HOME/.anyenv/bin:$PATH
 export PATH=$HOME/.yarn/bin:$HOME/.config/yarn/global/node_modules/.bin:$PATH # yarn
 export PATH=$HOME/go/bin:/usr/local/go/bin:$GOPATH/bin:$PATH # go
