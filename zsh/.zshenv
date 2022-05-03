@@ -42,6 +42,18 @@ function ghq-interactive-directory-select-and-cd() {
 }
 alias gcd="ghq-interactive-directory-select-and-cd"
 
+# ---- #
+# fgcd #
+# ---- #
+function foreground-cd() {
+  target=$(jobs | single-fzf-choice "$1" "background jobs")
+  if [ -z $target ]; then
+    return 0
+  fi
+  fg $(echo ${target} | awk '{print "%"substr($1, 2, 1)}')
+}
+alias fgcd="foreground-cd"
+
 # -------- #
 # vcs_info #
 # -------- #
