@@ -55,19 +55,12 @@ function _update_vcs_info_msg() {
 }
 add-zsh-hook precmd _update_vcs_info_msg
 
-# ------- #
-# gre-sed #
-# ------- #
-function grep-sed() {
-    git grep -l "$1" | xargs sed -i '' -e "s/$1/$2/g"
-}
-alias gsed=grep-sed
-
 # ---- #
 # path #
 # ---- #
 export PATH=$PATH:/usr/sbin:/usr/bin:/usr/local/sbin:/usr/local/bin:/sbin:/bin
 export PATH=/opt/homebrew/sbin:/opt/homebrew/bin:$PATH # M1 Mac
+export PATH=$HOME/bin:$PATH
 export PATH=$HOME/.anyenv/bin:$PATH
 export PATH=$HOME/.yarn/bin:$HOME/.config/yarn/global/node_modules/.bin:$PATH # yarn
 export PATH=$HOME/go/bin:/usr/local/go/bin:$GOPATH/bin:$PATH # go
