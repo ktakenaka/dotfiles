@@ -3,6 +3,7 @@
 DOT_HOME=$HOME/dotfiles
 
 echo 'Create ~/bin'
+rm -rf ${HOME}/bin
 mkdir ${HOME}/bin
 for f in $(ls ${DOT_HOME}/bin)
 do
