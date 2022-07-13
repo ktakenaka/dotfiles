@@ -1,3 +1,5 @@
+# Fig pre block. Keep at the top of this file.
+[[ -f "$HOME/.fig/shell/zshrc.pre.zsh" ]] && . "$HOME/.fig/shell/zshrc.pre.zsh"
 eval "$(direnv hook zsh)"
 eval "$(anyenv init -)"
 
@@ -45,6 +47,7 @@ alias gif='git fetch -p'
 alias gip='git pull'
 alias chrome="open /Applications/Google\ Chrome.app"
 alias dpslp="pmset displaysleepnow"
+alias mysqlbinlog='mysqlbinlog --base64-output=DECODE-ROWS -vv'
 
 alias curltime='curl -so /dev/nul -w "   time_namelookup:  %{time_namelookup}\n      time_connect:  %{time_connect}\n   time_appconnect:  %{time_appconnect}\n  time_pretransfer:  %{time_pretransfer}\n     time_redirect:  %{time_redirect}\ntime_starttransfer:  %{time_starttransfer}\n                    ----------\n        time_total:  %{time_total}\n"'
 
@@ -113,3 +116,6 @@ fi
 
 autoload -U +X bashcompinit && bashcompinit
 complete -o nospace -C /usr/local/bin/terraform terraform
+
+# Fig post block. Keep at the bottom of this file.
+[[ -f "$HOME/.fig/shell/zshrc.post.zsh" ]] && . "$HOME/.fig/shell/zshrc.post.zsh"
