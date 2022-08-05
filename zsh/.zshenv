@@ -73,6 +73,7 @@ add-zsh-hook precmd _update_vcs_info_msg
 # ---- #
 export PATH=$PATH:/usr/sbin:/usr/bin:/usr/local/sbin:/usr/local/bin:/sbin:/bin
 export PATH=/opt/homebrew/sbin:/opt/homebrew/bin:$PATH # M1 Mac
+export PATH="${KREW_ROOT:-$HOME/.krew}/bin:$PATH" # krew (kubectl)
 export PATH=$HOME/bin:$PATH
 export PATH=$HOME/.anyenv/bin:$PATH
 export PATH=$HOME/.yarn/bin:$HOME/.config/yarn/global/node_modules/.bin:$PATH # yarn
