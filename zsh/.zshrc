@@ -50,6 +50,7 @@ alias dpslp="pmset displaysleepnow"
 alias mysqlbinlogv='mysqlbinlog --base64-output=DECODE-ROWS -vv'
 alias curltime='curl -so /dev/nul -w "   time_namelookup:  %{time_namelookup}\n      time_connect:  %{time_connect}\n   time_appconnect:  %{time_appconnect}\n  time_pretransfer:  %{time_pretransfer}\n     time_redirect:  %{time_redirect}\ntime_starttransfer:  %{time_starttransfer}\n                    ----------\n        time_total:  %{time_total}\n"'
 alias finish="say -v Samantha done"
+alias starttmux="tmux attach -t default || tmux new -s default"
 
 # -------------- #
 # 2-line display #
@@ -110,9 +111,10 @@ if [ "$(uname 2> /dev/null)" == "Linux" ]; then
   alias sync-dotfile="rsync $HOME/.tmux.conf $HOME/dotfiles/tmux/"
 fi
 
-if [ -z "$TMUX" ]; then
-  tmux attach -t default || tmux new -s default
-fi
+# 自動でtmux繋がると不便なことがあるのでコメントアウト
+# if [ -z "$TMUX" ]; then
+#  tmux attach -t default || tmux new -s default
+# fi
 
 autoload -U +X bashcompinit && bashcompinit
 complete -o nospace -C /usr/local/bin/terraform terraform
