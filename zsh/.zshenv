@@ -54,6 +54,10 @@ function foreground-cd() {
 }
 alias fgcd="foreground-cd"
 
+function gsed() {
+  git grep -l "$1" | xargs sed -i '' -e "s/$1/$2/g"
+}
+
 # -------- #
 # vcs_info #
 # -------- #
