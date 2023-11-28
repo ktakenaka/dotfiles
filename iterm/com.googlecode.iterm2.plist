@@ -58,6 +58,10 @@
 	<true/>
 	<key>NeverWarnAboutMeta_selection</key>
 	<integer>0</integer>
+	<key>NeverWarnAboutShortLivedSessions_DA4CBEAC-C299-4E41-9204-37DED13942F8</key>
+	<true/>
+	<key>NeverWarnAboutShortLivedSessions_DA4CBEAC-C299-4E41-9204-37DED13942F8_selection</key>
+	<integer>0</integer>
 	<key>New Bookmarks</key>
 	<array>
 		<dict>
