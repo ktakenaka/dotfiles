@@ -4,10 +4,15 @@
 # ---- #
 # path #
 # ---- #
-export PATH=/opt/homebrew/sbin:/opt/homebrew/bin:$PATH # M1 Mac
+os=$(uname -s)
+if [ "$os" = "Darwin" ]; then
+  export PATH=/opt/homebrew/sbin:/opt/homebrew/bin:$PATH
+elif [ "$os" = "Linux" ]; then
+  # No special paths for Linux at the moment
+fi
+
+[[  -x ${HOME}/.anyenv/bin/anyenv ]] && export PATH=$HOME/.anyenv/bin:$PATH
 export PATH="${KREW_ROOT:-$HOME/.krew}/bin:$PATH" # krew (kubectl)
-export PATH=$HOME/bin:$PATH
-export PATH=$HOME/.anyenv/bin:$PATH
 export PATH=$HOME/go/bin:/usr/local/go/bin:$GOPATH/bin:$PATH # go
 export PATH=/usr/local/opt/openssl/bin:$PATH # openssl
 
@@ -50,10 +55,9 @@ export LANG=ja_JP.UTF-8
 export LC_ALL=en_US.UTF-8
 export HISTFILE=${HOME}/.zsh_history # 履歴ファイルの保存先
 export HISTSIZE=1000                 # メモリに保存される履歴の件数
-export SAVEHIST=10000                # 履歴ファイルに保存される履歴の件数
+export SAVEHIST=5000                 # 履歴ファイルに保存される履歴の件数
 
 autoload -U +X bashcompinit && bashcompinit
-complete -o nospace -C /usr/local/bin/terraform terraform
 
 # Fig post block. Keep at the bottom of this file.
 [[ -f "$HOME/.fig/shell/zprofile.post.zsh" ]] && builtin source "$HOME/.fig/shell/zprofile.post.zsh"
