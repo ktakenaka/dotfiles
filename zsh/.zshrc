@@ -53,7 +53,13 @@ alias gif='git fetch -p'
 alias gip='git pull'
 alias mysqlbinlogv='mysqlbinlog --base64-output=DECODE-ROWS -vv'
 alias curltime='curl -so /dev/nul -w "   time_namelookup:  %{time_namelookup}\n      time_connect:  %{time_connect}\n   time_appconnect:  %{time_appconnect}\n  time_pretransfer:  %{time_pretransfer}\n     time_redirect:  %{time_redirect}\ntime_starttransfer:  %{time_starttransfer}\n                    ----------\n        time_total:  %{time_total}\n"'
-alias starttmux="tmux attach -t default || tmux new -s default"
+
+if command -v tmux &> /dev/null && [ -z "$TMUX" ]; then
+    if ! tmux attach -t default 2>/dev/null; then
+        tmux new-session -d -s default
+        tmux attach -t default
+    fi
+fi
 
 # Fig post block. Keep at the bottom of this file.
 [[ -f "$HOME/.fig/shell/zshrc.post.zsh" ]] && builtin source "$HOME/.fig/shell/zshrc.post.zsh"
