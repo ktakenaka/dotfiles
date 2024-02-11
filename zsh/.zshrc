@@ -29,8 +29,13 @@ export LS_COLORS='di=01;36:ln=01;35:ex=01;32'
 # -------------- #
 # 2-line display #
 # -------------- #
-PROMPT="%{${fg[green]}%}%n %{${fg[blue]}%}@ %~  %{$fg[magenta]%}%D/%T
+if [ "$(uname -s)" = "Darwin" ]; then
+  PROMPT="%{${fg[green]}%}%n%{${fg[blue]}%}@%~  %{$fg[magenta]%}%D/%T
 %{${reset_color}%}:) %{${fg[cyan]}%}$%{${reset_color}%} "
+else
+  PROMPT='%F{black}%n@%m%f:%F{black}%~%f$ '
+fi
+
 
 # ----- #
 # alias #
