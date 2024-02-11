@@ -1,6 +1,0 @@
-#!/bin/sh
-
-set -ex
-
-find $HOME/Downloads -mtime +3 ! -type d -delete
-find $HOME/Downloads -type d -empty -delete
