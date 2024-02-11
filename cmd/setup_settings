@@ -1,5 +1,5 @@
-#!/bin/sh
-echo 'Create symlinks'
+#!/bin/bash
+echo 'Create links'
 DIRS=(terminal vim zsh ruby tmux)
 DOT_HOME=$HOME/dotfiles
 for dir in ${DIRS[@]}
@@ -8,6 +8,6 @@ do
   for f in $(ls -A $DOT_HOME/$dir)
   do
     echo $f
-    ln -fs "$DOT_HOME/$dir/$f" $HOME/$f
+    ln -f "$DOT_HOME/$dir/$f" $HOME/$f
   done
 done
