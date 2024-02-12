@@ -41,7 +41,8 @@ alias gip='git pull'
 alias mysqlbinlogv='mysqlbinlog --base64-output=DECODE-ROWS -vv'
 alias curltime='curl -so /dev/nul -w "   time_namelookup:  %{time_namelookup}\n      time_connect:  %{time_connect}\n   time_appconnect:  %{time_appconnect}\n  time_pretransfer:  %{time_pretransfer}\n     time_redirect:  %{time_redirect}\ntime_starttransfer:  %{time_starttransfer}\n                    ----------\n        time_total:  %{time_total}\n"'
 
-if command -v tmux >/dev/null 2>&1 && [ -z "$TMUX" ]; then
+if command -v tmux >/dev/null 2>&1 && [ "$(uname -s)" = "Darwin" ] && [ -z "$TMUX" ]; then
+  # It's a bit inconvenient to attach tmux session in Linux. That's why tmux is used by default only on Mac.
   if ! tmux attach -t default 2>/dev/null; then
     tmux new-session -d -s default
     tmux attach -t default
