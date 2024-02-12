@@ -11,8 +11,8 @@ elif [ "$os" = "Linux" ]; then
   # No special paths for Linux at the moment
 fi
 
-[[  -x ${HOME}/.anyenv/bin/anyenv ]] && export PATH=$HOME/.anyenv/bin:$PATH
-export PATH="${KREW_ROOT:-$HOME/.krew}/bin:$PATH" # krew (kubectl)
+[[ -d ${HOME}/.anyenv ]] && export PATH=$HOME/.anyenv/bin:$PATH
+[[ -d "${KREW_ROOT:-$HOME/.krew}/bin" ]] && export PATH="${KREW_ROOT:-$HOME/.krew}/bin:$PATH"
 export PATH=$HOME/go/bin:/usr/local/go/bin:$GOPATH/bin:$PATH # go
 export PATH=/usr/local/opt/openssl/bin:$PATH # openssl
 
