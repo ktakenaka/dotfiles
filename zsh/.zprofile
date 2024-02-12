@@ -6,15 +6,12 @@
 # ---- #
 os=$(uname -s)
 if [ "$os" = "Darwin" ]; then
-  export PATH=/opt/homebrew/sbin:/opt/homebrew/bin:$PATH
+  add_to_path_if_not_exists "/opt/homebrew/sbin"
+  add_to_path_if_not_exists "/opt/homebrew/bin"
 elif [ "$os" = "Linux" ]; then
   # No special paths for Linux at the moment
 fi
-
-[[ -d ${HOME}/.anyenv ]] && export PATH=$HOME/.anyenv/bin:$PATH
-[[ -d "${KREW_ROOT:-$HOME/.krew}/bin" ]] && export PATH="${KREW_ROOT:-$HOME/.krew}/bin:$PATH"
-export PATH=$HOME/go/bin:/usr/local/go/bin:$GOPATH/bin:$PATH # go
-export PATH=/usr/local/opt/openssl/bin:$PATH # openssl
+add_to_path_if_not_exists "${KREW_ROOT:-$HOME/.krew}/bin"
 
 # ---------- #
 # completion #

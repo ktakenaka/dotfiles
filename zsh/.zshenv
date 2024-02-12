@@ -8,9 +8,9 @@ alias cd="cdls"
 # peco #
 # ---- #
 function peco-history-selection() {
-    BUFFER=`history -n 1 | tail -r  | awk '!a[$0]++' | peco`
-    CURSOR=$#BUFFER
-    zle reset-prompt
+  BUFFER=`history -n 1 | tail -r  | awk '!a[$0]++' | peco`
+  CURSOR=$#BUFFER
+  zle reset-prompt
 }
 
 zle -N peco-history-selection
@@ -67,7 +67,18 @@ zstyle ':vcs_info:*' actionformats '%F{red}(%s)-[%b|%a]%f'
 
 autoload -Uz add-zsh-hook
 function _update_vcs_info_msg() {
-    LANG=en_US.UTF-8 vcs_info
-    RPROMPT="${vcs_info_msg_0_}"
+  LANG=en_US.UTF-8 vcs_info
+  RPROMPT="${vcs_info_msg_0_}"
 }
 add-zsh-hook precmd _update_vcs_info_msg
+
+# ------------------------- #
+# add_to_path_if_not_exists #
+# ------------------------- #
+add_to_path_if_not_exists() {
+  local directory=$1
+  # shellの中でshellを起動すると、zprofileのpathが何回も追加されるので、それを防ぎたい
+  if [[ -d "$directory" ]] && [[ "$PATH" != *":$directory:"* ]]; then
+    export PATH="$directory:$PATH"
+  fi
+}
