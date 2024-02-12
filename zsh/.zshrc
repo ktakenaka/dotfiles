@@ -1,14 +1,6 @@
 # Fig pre block. Keep at the top of this file.
 [[ -f "$HOME/.fig/shell/zshrc.pre.zsh" ]] && builtin source "$HOME/.fig/shell/zshrc.pre.zsh"
 
-if command -v direnv >/dev/null 2>&1; then
-  eval "$(direnv hook zsh)"
-fi
-
-if command -v anyenv >/dev/null 2>&1; then
-  eval "$(anyenv init -)"
-fi
-
 # ------ #
 # colors #
 # ------ #

@@ -56,5 +56,15 @@ export SAVEHIST=5000                 # 履歴ファイルに保存される履�
 
 autoload -U +X bashcompinit && bashcompinit
 
+if command -v direnv >/dev/null 2>&1; then
+  eval "$(direnv hook zsh)"
+fi
+
+if command -v anyenv >/dev/null 2>&1 && [ -z "$ANYENV_INITIALIZED" ]; then
+  eval "$(anyenv init -)"
+  # FIXME: Don't know exactly, but it duplicates paths in reloading by executing init several times. So, make it idempotent.
+  export ANYENV_INITIALIZED=1
+fi
+
 # Fig post block. Keep at the bottom of this file.
 [[ -f "$HOME/.fig/shell/zprofile.post.zsh" ]] && builtin source "$HOME/.fig/shell/zprofile.post.zsh"
