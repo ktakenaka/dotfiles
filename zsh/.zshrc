@@ -3,20 +3,10 @@
 
 if command -v direnv >/dev/null 2>&1; then
   eval "$(direnv hook zsh)"
-  if ! [ -f /tmp/direnv.cache ]; then
-    direnv hook zsh > /tmp/direnv.cache
-    zcompile /tmp/direnv.cache
-  fi
-  source /tmp/direnv.cache
 fi
 
 if command -v anyenv >/dev/null 2>&1; then
   eval "$(anyenv init -)"
-  if ! [ -f /tmp/anyenv.cache ]; then
-    anyenv init - --no-rehash > /tmp/anyenv.cache
-    zcompile /tmp/anyenv.cache
-  fi
-  source /tmp/anyenv.cache
 fi
 
 # ------ #
