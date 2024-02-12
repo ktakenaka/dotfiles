@@ -1,0 +1,17 @@
+#!/bin/bash
+
+# Convert PATH variable into a line-separated list of paths
+path_list=$(echo $PATH | tr ":" "\n")
+
+# Sort paths and count unique occurrences, then find duplicates
+duplicates=$(echo "$path_list" | sort | uniq -d)
+
+if [ -z "$duplicates" ]; then
+  echo "No duplications found in PATH."
+else
+  echo "Duplicate paths found in PATH:"
+  echo "$duplicates" | while read line; do
+    count=$(echo "$path_list" | grep -c "^$line$")
+    echo "$line, Count: $count"
+  done
+fi
