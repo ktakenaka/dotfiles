@@ -18,7 +18,6 @@ else
   PROMPT='%F{black}%n@%m%f:%F{black}%~%f$ '
 fi
 
-
 # ----- #
 # alias #
 # ----- #
