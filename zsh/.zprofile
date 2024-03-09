@@ -44,6 +44,8 @@ setopt hist_reduce_blanks    # ヒストリに保存するときに余分なス�
 setopt correct               # コマンドの打ち間違いを指摘してくれる
 SPROMPT="correct: $RED%R$DEFAULT -> $GREEN%r$DEFAULT ? [Yes/No/Abort/Edit] => "
 
+autoload -U +X bashcompinit && bashcompinit
+
 # --------------------- #
 # environment variables #
 # --------------------- #
@@ -54,17 +56,23 @@ export HISTFILE=${HOME}/.zsh_history # 履歴ファイルの保存先
 export HISTSIZE=1000                 # メモリに保存される履歴の件数
 export SAVEHIST=5000                 # 履歴ファイルに保存される履歴の件数
 
-autoload -U +X bashcompinit && bashcompinit
-
-if command -v direnv >/dev/null 2>&1; then
-  eval "$(direnv hook zsh)"
-fi
-
-if command -v anyenv >/dev/null 2>&1 && [ -z "$ANYENV_INITIALIZED" ]; then
-  eval "$(anyenv init -)"
-  # FIXME: Don't know exactly, but it duplicates paths in reloading by executing init several times. So, make it idempotent.
-  export ANYENV_INITIALIZED=1
-fi
+# ----- #
+# alias #
+# ----- #
+alias ls='ls --color=auto -G -F'
+alias la='ls -A'
+alias ll='ls -lh'
+alias rm='rm -i'
+alias cp='cp -i'
+alias mv='mv -i'
+alias gi='git'
+alias gis='git status'
+alias gib='git branch'
+alias gic='git checkout'
+alias gim='git commit --amend -C HEAD --date=now'
+alias gif='git fetch -p'
+alias mysqlbinlogv='mysqlbinlog --base64-output=DECODE-ROWS -vv'
+alias curltime='curl -so /dev/nul -w "   time_namelookup:  %{time_namelookup}\n      time_connect:  %{time_connect}\n   time_appconnect:  %{time_appconnect}\n  time_pretransfer:  %{time_pretransfer}\n     time_redirect:  %{time_redirect}\ntime_starttransfer:  %{time_starttransfer}\n                    ----------\n        time_total:  %{time_total}\n"'
 
 # Fig post block. Keep at the bottom of this file.
 [[ -f "$HOME/.fig/shell/zprofile.post.zsh" ]] && builtin source "$HOME/.fig/shell/zprofile.post.zsh"

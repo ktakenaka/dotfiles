@@ -1,6 +1,16 @@
 # Fig pre block. Keep at the top of this file.
 [[ -f "$HOME/.fig/shell/zshrc.pre.zsh" ]] && builtin source "$HOME/.fig/shell/zshrc.pre.zsh"
 
+if command -v direnv >/dev/null 2>&1; then
+  eval "$(direnv hook zsh)"
+fi
+
+if command -v anyenv >/dev/null 2>&1 && [ -z "$ANYENV_INITIALIZED" ]; then
+  eval "$(anyenv init -)"
+  # FIXME: Don't know exactly, but it duplicates paths in reloading by executing init several times. So, make it idempotent.
+  export ANYENV_INITIALIZED=1
+fi
+
 # ------ #
 # colors #
 # ------ #
@@ -17,24 +27,6 @@ if [ "$(uname -s)" = "Darwin" ]; then
 else
   PROMPT='%F{black}%n@%m%f:%F{black}%~%f$ '
 fi
-
-# ----- #
-# alias #
-# ----- #
-alias ls='ls --color=auto -G -F'
-alias la='ls -A'
-alias ll='ls -lh'
-alias rm='rm -i'
-alias cp='cp -i'
-alias mv='mv -i'
-alias gi='git'
-alias gis='git status'
-alias gib='git branch'
-alias gic='git checkout'
-alias gim='git commit --amend -C HEAD --date=now'
-alias gif='git fetch -p'
-alias mysqlbinlogv='mysqlbinlog --base64-output=DECODE-ROWS -vv'
-alias curltime='curl -so /dev/nul -w "   time_namelookup:  %{time_namelookup}\n      time_connect:  %{time_connect}\n   time_appconnect:  %{time_appconnect}\n  time_pretransfer:  %{time_pretransfer}\n     time_redirect:  %{time_redirect}\ntime_starttransfer:  %{time_starttransfer}\n                    ----------\n        time_total:  %{time_total}\n"'
 
 if command -v tmux >/dev/null 2>&1 && [ "$(uname -s)" = "Darwin" ] && [ -z "$TMUX" ]; then
   # It's a bit inconvenient to attach tmux session in Linux. That's why tmux is used by default only on Mac.
