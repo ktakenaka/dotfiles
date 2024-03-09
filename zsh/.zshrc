@@ -7,16 +7,8 @@ fi
 
 if command -v anyenv >/dev/null 2>&1 && [ -z "$ANYENV_INITIALIZED" ]; then
   eval "$(anyenv init -)"
-  # FIXME: Don't know exactly, but it duplicates paths in reloading by executing init several times. So, make it idempotent.
-  export ANYENV_INITIALIZED=1
+  # FIXME: It duplicates anyenv paths on starting another shell inside the shell.
 fi
-
-# ------ #
-# colors #
-# ------ #
-autoload -Uz colors && colors
-export LSCOLORS=gxfxxxxxcxxxxxxxxxgxgx
-export LS_COLORS='di=01;36:ln=01;35:ex=01;32'
 
 # -------------- #
 # 2-line display #

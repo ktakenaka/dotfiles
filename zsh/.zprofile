@@ -56,6 +56,13 @@ export HISTFILE=${HOME}/.zsh_history # 履歴ファイルの保存先
 export HISTSIZE=1000                 # メモリに保存される履歴の件数
 export SAVEHIST=5000                 # 履歴ファイルに保存される履歴の件数
 
+# ------ #
+# colors #
+# ------ #
+autoload -Uz colors && colors
+export LSCOLORS=gxfxxxxxcxxxxxxxxxgxgx
+export LS_COLORS='di=01;36:ln=01;35:ex=01;32'
+
 # ----- #
 # alias #
 # ----- #
