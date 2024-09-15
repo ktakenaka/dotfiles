@@ -6,12 +6,15 @@ bin/dump.sh
 # initialize
 ```
 xcode-select --install
-/usr/bin/ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
-/usr/local/bin/brew install zsh git
-/usr/local/bin/git clone https://github.com/ktakenaka/dotfiles.git
+```
+Install homebrew: https://brew.sh/
+
+```
+brew install git
+git clone https://github.com/ktakenaka/dotfiles.git
 ```
 
-then
+Setup config and install dependencies
 ```
 bin/setup_settings.sh
 bin/install_dependencies.sh
