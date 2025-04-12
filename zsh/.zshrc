@@ -16,7 +16,7 @@ if [ "$(uname -s)" = "Darwin" ]; then
   PROMPT="%{${fg[green]}%}%n%{${fg[blue]}%}@%~  %{$fg[magenta]%}%D/%T
 %{${reset_color}%}:) %{${fg[cyan]}%}$%{${reset_color}%} "
 else
-  PROMPT='%F{black}%n@%m%f:%F{black}%~%f$ '
+  PROMPT='%F{green}%n@%m%f:%F{blue}%~%f$ '
 fi
 
 if command -v tmux >/dev/null 2>&1 && [ "$(uname -s)" = "Darwin" ] && [ -z "$TMUX" ]; then
