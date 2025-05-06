@@ -47,6 +47,7 @@ add_to_path_if_not_exists "${KREW_ROOT:-$HOME/.krew}/bin"
 # completion #
 # ---------- #
 autoload -Uz compinit && compinit
+autoload -U +X bashcompinit && bashcompinit
 zstyle ':completion:*:default' menu select interactive # 補完候補を矢印で選択できる
 zstyle ':completion:*' matcher-list 'm:{a-z}={A-Z}'    # 補完で小文字でも大文字にマッチさせる
 zstyle ':completion:*' list-colors ${(s.:.)LS_COLORS}  # ファイルの補完で色付きにする
@@ -74,7 +75,7 @@ setopt hist_reduce_blanks    # ヒストリに保存するときに余分なス�
 setopt correct               # コマンドの打ち間違いを指摘してくれる
 SPROMPT="correct: $RED%R$DEFAULT -> $GREEN%r$DEFAULT ? [Yes/No/Abort/Edit] => "
 
-autoload -U +X bashcompinit && bashcompinit
+bindkey "\e[3~" delete-char # Manjaroのterminalでdeleteキーが効かないので、deleteキーをdelete-charにbindする
 
 # --------------------- #
 # environment variables #
