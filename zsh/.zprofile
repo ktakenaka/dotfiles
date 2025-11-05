@@ -6,8 +6,8 @@
 # ---- #
 os=$(uname -s)
 if [ "$os" = "Darwin" ]; then
-  add_to_path_if_not_exists "/opt/homebrew/sbin"
-  add_to_path_if_not_exists "/opt/homebrew/bin"
+  PATH="/opt/homebrew/sbin:${PATH//\/opt\/homebrew\/sbin:/}"
+  PATH="/opt/homebrew/bin:${PATH//\/opt\/homebrew\/bin:/}"
 elif [ "$os" = "Linux" ]; then
   # No special paths for Linux at the moment
 fi
