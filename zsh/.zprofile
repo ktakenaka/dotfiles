@@ -11,9 +11,8 @@ add_to_path_if_not_exists "$HOME/.local/bin"
 add_to_path_if_not_exists "${KREW_ROOT:-$HOME/.krew}/bin"
 
 os=$(uname -s)
-if [ "$os" = "Darwin" ]; then
-  PATH="/opt/homebrew/sbin:${PATH//\/opt\/homebrew\/sbin:/}"
-  PATH="/opt/homebrew/bin:${PATH//\/opt\/homebrew\/bin:/}"
+if [ "$os" = "Darwin" ] && [ -x /opt/homebrew/bin/brew ]; then
+  eval "$(/opt/homebrew/bin/brew shellenv)"
 fi
 
 # ---- #
