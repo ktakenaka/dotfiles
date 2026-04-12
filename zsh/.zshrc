@@ -167,3 +167,12 @@ if [ -f "$HOME/google-cloud-sdk/path.zsh.inc" ]; then . "$HOME/google-cloud-sdk/
 
 # The next line enables shell command completion for gcloud.
 if [ -f "$HOME/google-cloud-sdk/completion.zsh.inc" ]; then . "$HOME/google-cloud-sdk/completion.zsh.inc"; fi
+
+# ------ #
+# asdf   #
+# ------ #
+# Prepend ~/.asdf/shims. Load after Homebrew (.zprofile) and anyenv so `node`/`pnpm`
+# resolve via asdf, not /opt/homebrew/bin/node.
+if [ -f /opt/homebrew/opt/asdf/libexec/asdf.sh ]; then
+  . /opt/homebrew/opt/asdf/libexec/asdf.sh
+fi
