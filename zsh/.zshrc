@@ -12,15 +12,6 @@ if command -v direnv >/dev/null 2>&1; then
 fi
 
 # ------ #
-# anyenv #
-# ------ #
-add_to_path_if_not_exists "$HOME/.anyenv/bin"
-if command -v anyenv >/dev/null 2>&1 && [ -z "$ANYENV_INITIALIZED" ]; then
-  eval "$(anyenv init -)"
-  export ANYENV_INITIALIZED=1
-fi
-
-# ------ #
 # colors #
 # ------ #
 autoload -Uz colors && colors
@@ -171,8 +162,8 @@ if [ -f "$HOME/google-cloud-sdk/completion.zsh.inc" ]; then . "$HOME/google-clou
 # ------ #
 # asdf   #
 # ------ #
-# Prepend ~/.asdf/shims. Load after Homebrew (.zprofile) and anyenv so `node`/`pnpm`
-# resolve via asdf, not /opt/homebrew/bin/node.
+# Prepend ~/.asdf/shims. Load after Homebrew (.zprofile) so node/pnpm and other asdf
+# tools resolve via asdf shims, not /opt/homebrew/bin when versions are installed.
 if [ -f /opt/homebrew/opt/asdf/libexec/asdf.sh ]; then
   . /opt/homebrew/opt/asdf/libexec/asdf.sh
 fi

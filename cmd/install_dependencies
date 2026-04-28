@@ -1,5 +1,8 @@
 #!/bin/sh
 brew bundle
 
-# anyenv-update https://github.com/znz/anyenv-update
-# nodenv-yarn-install https://github.com/pine/nodenv-yarn-install
+# asdf plugins for Go and Terraform (one-time, after bundle):
+#   asdf plugin add golang https://github.com/asdf-vm/asdf-golang.git
+#   asdf plugin add hashicorp https://github.com/asdf-community/asdf-hashicorp.git
+#   asdf install golang latest && asdf install terraform latest
+#   asdf global golang "$(asdf latest golang)" terraform "$(asdf latest terraform)"
