@@ -1,6 +1,6 @@
 #!/bin/bash
 echo 'Create links'
-DIRS=(terminal vim zsh ruby tmux)
+DIRS=(asdf terminal vim zsh ruby tmux)
 DOT_HOME=$HOME/dotfiles
 for dir in ${DIRS[@]}
 do
