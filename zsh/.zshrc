@@ -162,8 +162,7 @@ if [ -f "$HOME/google-cloud-sdk/completion.zsh.inc" ]; then . "$HOME/google-clou
 # ------ #
 # asdf   #
 # ------ #
-# Prepend ~/.asdf/shims. Load after Homebrew (.zprofile) so node/pnpm and other asdf
-# tools resolve via asdf shims, not /opt/homebrew/bin when versions are installed.
-if [ -f /opt/homebrew/opt/asdf/libexec/asdf.sh ]; then
-  . /opt/homebrew/opt/asdf/libexec/asdf.sh
-fi
+export PATH="${ASDF_DATA_DIR:-$HOME/.asdf}/shims:$PATH"
+
+# Added by sonarqube-cli installer
+export PATH="$HOME/.local/share/sonarqube-cli/bin:$PATH"
