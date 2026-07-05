@@ -166,3 +166,11 @@ export PATH="${ASDF_DATA_DIR:-$HOME/.asdf}/shims:$PATH"
 
 # Added by sonarqube-cli installer
 export PATH="$HOME/.local/share/sonarqube-cli/bin:$PATH"
+
+# ---- #
+# tmux #
+# ---- #
+# Run tmux on interactive shell (not over SSH, not in VSCode/Cursor)
+if command -v tmux >/dev/null 2>&1 && [ -z "$SSH_CONNECTION" ] && [ -z "$TMUX" ] && [ "$TERM_PROGRAM" != "vscode" ]; then
+  tmux attach -t default 2>/dev/null || tmux new-session -s default
+fi
