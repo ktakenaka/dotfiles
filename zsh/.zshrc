@@ -167,3 +167,11 @@ if [ -f "$HOME/google-cloud-sdk/completion.zsh.inc" ]; then . "$HOME/google-clou
 if [ -f /opt/homebrew/opt/asdf/libexec/asdf.sh ]; then
   . /opt/homebrew/opt/asdf/libexec/asdf.sh
 fi
+
+# ---- #
+# tmux #
+# ---- #
+# Run tmux on interactive shell (not over SSH, not in VSCode/Cursor)
+if command -v tmux >/dev/null 2>&1 && [ -z "$SSH_CONNECTION" ] && [ -z "$TMUX" ] && [ "$TERM_PROGRAM" != "vscode" ]; then
+  tmux attach -t default 2>/dev/null || tmux new-session -s default
+fi
