@@ -77,9 +77,9 @@ alias fgcd="foreground-cd"
 alias ls='ls --color=auto -G -F'
 alias la='ls -A'
 alias ll='ls -lh'
-alias rm='rm -i'
-alias cp='cp -i'
-alias mv='mv -i'
+# alias rm='rm -i'
+# alias cp='cp -i'
+# alias mv='mv -i'
 
 alias gi='git'
 alias gis='git status'
