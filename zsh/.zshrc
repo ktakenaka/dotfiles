@@ -174,3 +174,6 @@ export PATH="$HOME/.local/share/sonarqube-cli/bin:$PATH"
 if command -v tmux >/dev/null 2>&1 && [ -z "$SSH_CONNECTION" ] && [ -z "$TMUX" ] && [ "$TERM_PROGRAM" != "vscode" ]; then
   tmux attach -t default 2>/dev/null || tmux new-session -s default
 fi
+
+# opencode
+export PATH=$HOME/.opencode/bin:$PATH
