@@ -35,3 +35,12 @@ export SAVEHIST=5000                 # 履歴ファイルに保存される履�
 export CLICOLOR=1
 export LSCOLORS=gxfxxxxxcxxxxxxxxxgxgx
 export LS_COLORS='di=01;36:ln=01;35:ex=01;32'
+
+# ----------- #
+# Android SDK #
+# ----------- #
+export ANDROID_HOME="$HOME/Android/Sdk"
+export ANDROID_SDK_ROOT="$ANDROID_HOME"
+add_to_path_if_not_exists "$ANDROID_HOME/platform-tools"
+add_to_path_if_not_exists "$ANDROID_HOME/emulator"
+add_to_path_if_not_exists "$ANDROID_HOME/cmdline-tools/latest/bin"
