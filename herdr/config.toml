@@ -1,0 +1,12 @@
+[terminal]
+default_shell = "/bin/zsh"
+
+[keys]
+split_horizontal = "prefix+minus"
+split_vertical = "prefix+shift+backslash"
+focus_pane_left = "shift+left"
+focus_pane_up = "shift+up"
+focus_pane_right = "shift+right"
+focus_pane_down = "shift+down"
+close_pane = "ctrl+w"
+close_tab = "alt+w"

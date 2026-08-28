@@ -13,12 +13,17 @@ do
 done
 
 if [ "$(uname -s)" = "Linux" ]; then
-  echo "--- ghostty ---"
-  GHOSTTY_CONFIG_DIR="${XDG_CONFIG_HOME:-$HOME/.config}/ghostty"
-  mkdir -p "$GHOSTTY_CONFIG_DIR"
-  for f in $(ls -A $DOT_HOME/ghostty)
+  XDG_CONFIG_BASE="${XDG_CONFIG_HOME:-$HOME/.config}"
+  XDG_CONFIG_DIRS=(ghostty herdr)
+  for name in "${XDG_CONFIG_DIRS[@]}"
   do
-    echo $f
-    ln -f "$DOT_HOME/ghostty/$f" "$GHOSTTY_CONFIG_DIR/$f"
+    echo "--- $name ---"
+    config_dir="$XDG_CONFIG_BASE/$name"
+    mkdir -p "$config_dir"
+    for f in $(ls -A "$DOT_HOME/$name")
+    do
+      echo $f
+      ln -f "$DOT_HOME/$name/$f" "$config_dir/$f"
+    done
   done
 fi
