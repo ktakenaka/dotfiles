@@ -1,6 +1,6 @@
 # Font
 font-family = Monaco
-font-size = 12
+font-size = 11
 
 # Colors (Solarized Dark)
 background = 1a1a1a
@@ -20,7 +20,7 @@ selection-background = cccccc
 selection-foreground = 93a1a1
 
 # Scrollback
-scrollback-limit = 20000
+scrollback-limit = 10000
 
 # Fullscreen (iTerm2 Window Type 1)
 fullscreen = true
