@@ -11,3 +11,14 @@ do
     ln -f "$DOT_HOME/$dir/$f" $HOME/$f
   done
 done
+
+if [ "$(uname -s)" = "Linux" ]; then
+  echo "--- ghostty ---"
+  GHOSTTY_CONFIG_DIR="${XDG_CONFIG_HOME:-$HOME/.config}/ghostty"
+  mkdir -p "$GHOSTTY_CONFIG_DIR"
+  for f in $(ls -A $DOT_HOME/ghostty)
+  do
+    echo $f
+    ln -f "$DOT_HOME/ghostty/$f" "$GHOSTTY_CONFIG_DIR/$f"
+  done
+fi
