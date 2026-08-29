@@ -23,6 +23,12 @@ export LANG=ja_JP.UTF-8
 export LC_ALL=en_US.UTF-8
 
 # ------- #
+# editor  #
+# ------- #
+export EDITOR=vim
+export VISUAL=vim
+
+# ------- #
 # history #
 # ------- #
 export HISTFILE=${HOME}/.zsh_history # 履歴ファイルの保存先
