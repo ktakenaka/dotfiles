@@ -25,6 +25,17 @@ done
 XDG_CONFIG_BASE="${XDG_CONFIG_HOME:-$HOME/.config}"
 link_files "herdr" "$DOT_HOME/herdr" "$XDG_CONFIG_BASE/herdr"
 
+if [ "$(uname -s)" = "Darwin" ]; then
+  KARABINER_DIR="$XDG_CONFIG_BASE/karabiner"
+  mkdir -p "$KARABINER_DIR/assets/complex_modifications"
+  echo "--- karabiner ---"
+  echo karabiner.json
+  ln -f "$DOT_HOME/karabiner/karabiner.json" "$KARABINER_DIR/karabiner.json"
+  link_files "karabiner assets/complex_modifications" \
+    "$DOT_HOME/karabiner/assets/complex_modifications" \
+    "$KARABINER_DIR/assets/complex_modifications"
+fi
+
 if [ "$(uname -s)" = "Linux" ]; then
   link_files "ghostty" "$DOT_HOME/ghostty" "$XDG_CONFIG_BASE/ghostty"
 fi

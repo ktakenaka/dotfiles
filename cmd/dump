@@ -1,4 +1,5 @@
 #!/bin/sh
 cp ~/.config/karabiner/karabiner.json ./karabiner
-cp -pR ~/.config/karabiner/assets/complex_modifications/* ./karabiner/complex_modifications
+mkdir -p ./karabiner/assets/complex_modifications
+cp -pR ~/.config/karabiner/assets/complex_modifications/* ./karabiner/assets/complex_modifications
 brew bundle dump
