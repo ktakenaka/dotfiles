@@ -22,11 +22,9 @@ do
   link_files "$dir" "$DOT_HOME/$dir" "$HOME"
 done
 
+XDG_CONFIG_BASE="${XDG_CONFIG_HOME:-$HOME/.config}"
+link_files "herdr" "$DOT_HOME/herdr" "$XDG_CONFIG_BASE/herdr"
+
 if [ "$(uname -s)" = "Linux" ]; then
-  XDG_CONFIG_BASE="${XDG_CONFIG_HOME:-$HOME/.config}"
-  XDG_CONFIG_DIRS=(ghostty herdr)
-  for name in "${XDG_CONFIG_DIRS[@]}"
-  do
-    link_files "$name" "$DOT_HOME/$name" "$XDG_CONFIG_BASE/$name"
-  done
+  link_files "ghostty" "$DOT_HOME/ghostty" "$XDG_CONFIG_BASE/ghostty"
 fi
