@@ -171,17 +171,12 @@ export PATH="$HOME/.local/share/sonarqube-cli/bin:$PATH"
 # ---- #
 # multiplexer #
 # ---- #
-# Herdr on Linux; tmux elsewhere (not over SSH, not in VSCode/Cursor)
-if [ "$(uname -s)" = "Linux" ]; then
-  if command -v herdr >/dev/null 2>&1 \
-    && [ -z "$SSH_CONNECTION" ] && [ "${HERDR_ENV:-}" != "1" ] \
-    && [ "$TERM_PROGRAM" != "vscode" ]; then
+# herdr if available, else tmux (not over SSH, not in VSCode/Cursor)
+if [ -z "$SSH_CONNECTION" ] && [ "$TERM_PROGRAM" != "vscode" ] \
+  && [ "${HERDR_ENV:-}" != "1" ]; then
+  if command -v herdr >/dev/null 2>&1; then
     herdr
-  fi
-else
-  if command -v tmux >/dev/null 2>&1 \
-    && [ -z "$SSH_CONNECTION" ] && [ -z "$TMUX" ] \
-    && [ "$TERM_PROGRAM" != "vscode" ]; then
+  elif command -v tmux >/dev/null 2>&1 && [ -z "$TMUX" ]; then
     tmux attach -t default 2>/dev/null || tmux new-session -s default
   fi
 fi
