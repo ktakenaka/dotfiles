@@ -95,6 +95,7 @@ alias curltime='curl -so /dev/null -w "   time_namelookup:  %{time_namelookup}\n
 # ----------- #
 # keybindings #
 # ----------- #
+bindkey -e                    # Emacs keybindings (Ctrl+A/E for line start/end)
 zle -N peco-history-selection
 bindkey '^R' peco-history-selection
 
