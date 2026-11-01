@@ -11,6 +11,12 @@ if command -v direnv >/dev/null 2>&1; then
   eval "$(direnv hook zsh)"
 fi
 
+# -------------- #
+# Docker Desktop #
+# -------------- #
+# fpath は compinit より前に足す。PATH は .zprofile
+[ "$(uname -s)" = "Darwin" ] && fpath=("$HOME/.docker/completions" $fpath)
+
 # ------ #
 # colors #
 # ------ #
@@ -114,6 +120,7 @@ setopt auto_param_slash      # ディレクトリ名の補完で末尾の / を�
 setopt mark_dirs             # ファイル名の展開でディレクトリにマッチした場合 末尾に / を付加
 setopt auto_menu             # 補完キー連打で順に補完候補を自動で補完
 
+
 # -------- #
 # settings #
 # -------- #
@@ -185,3 +192,6 @@ fi
 
 # opencode
 export PATH=$HOME/.opencode/bin:$PATH
+
+# Docker Desktop の補完が未登録なら compinit をやり直す
+[ "$(uname -s)" = "Darwin" ] && { (( ${+_comps[docker]} )) || compinit }
