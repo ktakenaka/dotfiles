@@ -181,7 +181,7 @@ export PATH="$HOME/.local/share/sonarqube-cli/bin:$PATH"
 # ---- #
 # herdr if available, else tmux (not over SSH, not in VSCode/Cursor)
 if [ -z "$SSH_CONNECTION" ] && [ "$TERM_PROGRAM" != "vscode" ] \
-  && [ "$__CFBundleIdentifier" != "com.anthropic.claudeforDesktop" ] \
+  && [ "$__CFBundleIdentifier" != "com.anthropic.claudefordesktop" ] \
   && [ "${HERDR_ENV:-}" != "1" ]; then
   if command -v herdr >/dev/null 2>&1; then
     herdr
