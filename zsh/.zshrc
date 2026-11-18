@@ -179,16 +179,17 @@ export PATH="$HOME/.local/share/sonarqube-cli/bin:$PATH"
 # ---- #
 # multiplexer #
 # ---- #
-# herdr if available, else tmux (not over SSH, not in VSCode/Cursor)
-if [ -z "$SSH_CONNECTION" ] && [ "$TERM_PROGRAM" != "vscode" ] \
-  && [ "$__CFBundleIdentifier" != "com.anthropic.claudefordesktop" ] \
-  && [ "${HERDR_ENV:-}" != "1" ]; then
-  if command -v herdr >/dev/null 2>&1; then
-    herdr
-  elif command -v tmux >/dev/null 2>&1 && [ -z "$TMUX" ]; then
-    tmux attach -t default 2>/dev/null || tmux new-session -s default
-  fi
-fi
+# iTerm2 / Ghostty で開いたときだけ herdr、なければ tmux
+case ${TERM_PROGRAM:-} in ghostty|iTerm.app)
+    if [ -z "$SSH_CONNECTION" ] && [ "${HERDR_ENV:-}" != "1" ]; then
+      if command -v herdr >/dev/null 2>&1; then
+        herdr
+      elif command -v tmux >/dev/null 2>&1 && [ -z "$TMUX" ]; then
+        tmux attach -t default 2>/dev/null || tmux new-session -s default
+      fi
+    fi
+    ;;
+esac
 
 # opencode
 export PATH=$HOME/.opencode/bin:$PATH
